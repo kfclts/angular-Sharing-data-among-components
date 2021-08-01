@@ -1,0 +1,13 @@
+<h1> SVC share data among components </h1>
+
+<h3>This is Parent</h3>
+<div>
+  {{mylist | json}}
+</div>
+
+<button (click)="addParentToChild()">addParentToChild</button>
+<br>
+
+<div>
+  <app-svc-child></app-svc-child>
+</div>
