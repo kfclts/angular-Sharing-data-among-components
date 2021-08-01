@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { RxServiceService } from '../rx-service.service';
+import { RxService } from '../rx.service';
 
 @Component({
   selector: 'app-rx-parent',
@@ -11,10 +11,10 @@ export class RxParentComponent implements OnInit {
   message: string = '';
   subscription!: Subscription;
 
-  constructor(private rxServiceService: RxServiceService) {}
+  constructor(private rxService: RxService) {}
 
   ngOnInit(): void {
-    this.subscription = this.rxServiceService.currentMessage.subscribe(
+    this.subscription = this.rxService.currentMessage.subscribe(
       (message) => (this.message = message)
     );
   }

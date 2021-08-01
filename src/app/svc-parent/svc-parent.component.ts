@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SvcServiceService } from '../svc-service.service';
+import { SvcService } from '../svc.service';
 
 @Component({
   selector: 'app-svc-parent',
@@ -7,13 +7,13 @@ import { SvcServiceService } from '../svc-service.service';
 })
 export class SvcParentComponent implements OnInit {
   mylist: String[] = [];
-  constructor(private svcServiceService: SvcServiceService) {}
+  constructor(private svcService: SvcService) {}
 
   ngOnInit(): void {
-    this.mylist = this.svcServiceService.mylistParent;
+    this.mylist = this.svcService.mylistParent;
   }
 
   addParentToChild() {
-    this.svcServiceService.mylistChild.push('parent to child');
+    this.svcService.mylistChild.push('parent to child');
   }
 }

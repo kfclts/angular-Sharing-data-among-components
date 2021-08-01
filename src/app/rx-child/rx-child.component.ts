@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { RxServiceService } from '../rx-service.service';
+import { RxService } from '../rx.service';
 
 @Component({
   selector: 'app-rx-child',
@@ -11,10 +11,10 @@ export class RxChildComponent implements OnInit {
   message: string = '';
   subscription!: Subscription;
 
-  constructor(private rxServiceService: RxServiceService) {}
+  constructor(private rxService: RxService) {}
 
   ngOnInit(): void {
-    this.subscription = this.rxServiceService.currentMessage.subscribe(
+    this.subscription = this.rxService.currentMessage.subscribe(
       (message) => (this.message = message)
     );
   }
@@ -24,6 +24,6 @@ export class RxChildComponent implements OnInit {
   }
 
   newMessage() {
-    this.rxServiceService.changeMessage('Hello from Sibling');
+    this.rxService.changeMessage('Hello from Sibling');
   }
 }
