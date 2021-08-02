@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RxService {
-  private messageSource = new BehaviorSubject('default message');
-  currentMessage = this.messageSource.asObservable();
+  public mylistChild: String[] = [];
+  public mylistParent: String[] = [];
+
+  public childMessage$ = of(this.mylistChild);
+  public parentMessage$ = of(this.mylistParent);
 
   constructor() {}
-
-  changeMessage(message: string) {
-    this.messageSource.next(message);
-  }
 }

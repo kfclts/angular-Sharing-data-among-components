@@ -1,8 +1,13 @@
-<h1> Rxjs share data among components </h1>
+<h1> RX share data among components </h1>
 
 <h3>This is Parent</h3>
 <div>
-  {{message | json}}
+  {{mylist | json}}
 </div>
 
-<app-rx-child></app-rx-child>
+<button (click)="addParentToChild()">addParentToChild</button>
+<br>
+
+<div>
+  <app-rx-child></app-rx-child>
+</div>
